@@ -1,12 +1,13 @@
-$(document).mousemove(function(e){
+$(document).mousemove(function (e) {
     var circle = $("#circle");
-    x = e.pageX - parseInt(circle.width() / 2);
-    y = e.pageY - parseInt(circle.height() / 2);
-    circle.css({left:x, top:y});
+    var x = e.pageX - parseInt(circle.width() / 2);
+    var y = e.pageY - parseInt(circle.height() / 2);
+    circle.css({left: x, top: y});
+
     moveShadow();
     if (shouldUpdateColor()) {
         var c = getRandomColor();
-        $("#circle").css('background', c);
+        circle.css('background', c);
     }
 });
 
@@ -24,19 +25,19 @@ function moveShadow() {
     var logoShdwCenterX = parseInt(logoshadow.width() / 2);
     var logoShdwCenterY = parseInt(logoshadow.height() / 2);
 
-    lightX = parseInt(myCircle.offset().left) + lightCenterX;
-    lightY = parseInt(myCircle.offset().top) + lightCenterY;
+    var lightX = parseInt(myCircle.offset().left) + lightCenterX;
+    var lightY = parseInt(myCircle.offset().top) + lightCenterY;
 
-    logoX = parseInt(logo.offset().left) + logoCenterX;
-    logoY = parseInt(logo.offset().top) + logoCenterY;
+    var logoX = parseInt(logo.offset().left) + logoCenterX;
+    var logoY = parseInt(logo.offset().top) + logoCenterY;
 
-    distanceX = logoX - lightX;
-    distanceY = logoY - lightY;
+    var distanceX = logoX - lightX;
+    var distanceY = logoY - lightY;
 
-    distance = Math.sqrt(Math.pow(distanceX, 2) + Math.pow(distanceY, 2));
-    shadowDistance = distance * shadowOffset;
-    shadowPosLeft = (distanceX / distance * shadowDistance + lightX - logoShdwCenterX) + "px";
-    shadowPosTop = (distanceY / distance * shadowDistance + lightY - logoShdwCenterY) + "px";
+    var distance = Math.sqrt(Math.pow(distanceX, 2) + Math.pow(distanceY, 2));
+    var shadowDistance = distance * shadowOffset;
+    var shadowPosLeft = (distanceX / distance * shadowDistance + lightX - logoShdwCenterX) + "px";
+    var shadowPosTop = (distanceY / distance * shadowDistance + lightY - logoShdwCenterY) + "px";
     logoshadow.css({"left": shadowPosLeft, "top": shadowPosTop, "opacity": setOpacity(shadowDistance)});
 }
 
@@ -49,6 +50,20 @@ function setOpacity(getDistance) {
     }
 }
 
-$("#body").click(function(){
+$("*").click(function (e) {
+    var concentric = document.createElement("div");
+    concentric.id = "concentric";
 
+    // Get location of the circle
+    var circle = $("#circle");
+    var x = e.pageX - parseInt(circle.width() / 2);
+    var y = e.pageY - parseInt(circle.height() / 2);
+
+    concentric.style.cssText = "left: " + x + "px; top: " + y + "px";
+
+    $("body").append(concentric);
+    animateConcentric(concentric);
 });
+
+function animateConcentric(concentric) {
+}
