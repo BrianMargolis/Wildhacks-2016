@@ -2,8 +2,10 @@
 <html>
 <head>
 	<link rel = "stylesheet" type = "text/css" href = "style.css">
-	<script type = "text/javascript" src = "move.js"></script>
+	<!--Important that the jquery one comes FIRST, then whatever scripts we wrote-->
+	<!--Otherwise it does not work one single bit-->
 	<script src = "jquery-3.1.1.js"></script>
+	<script type = "text/javascript" src = "move.js"></script>
 </head>
 <body>
 
@@ -11,19 +13,11 @@
 
 </div>
 
-</body>
-<script>
-	$(document).mousemove(function(e){
-		$("#circle").css({left:e.pageX, top:e.pageY});
-		if (shouldUpdateColor()) {
-			var c = getRandomColor();
-			$("#circle").css('background', c);
-		}
-	});
+<div id = "container">
+	<h1> Hello, name. </h1>
+</div>
+<div id = "logosh"></div>
 
-	$("#animate").click(function(){
-		// action goes here!!
-	});
-</script>
+</body>
 </html>
 
