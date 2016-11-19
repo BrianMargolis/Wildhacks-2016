@@ -1,5 +1,8 @@
 $(document).mousemove(function(e){
-    $("#circle").css({left:e.pageX, top:e.pageY});
+    var circle = $("#circle");
+    x = e.pageX - parseInt(circle.width() / 2);
+    y = e.pageY - parseInt(circle.height() / 2);
+    circle.css({left:x, top:y});
     moveShadow();
     if (shouldUpdateColor()) {
         var c = getRandomColor();
@@ -47,5 +50,5 @@ function setOpacity(getDistance) {
 }
 
 $("#body").click(function(){
-    // do something when you click
+
 });
