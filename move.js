@@ -9,7 +9,8 @@ function getRandomColor() {
     return color;
 }
 
-// Makes the circle change colors a little less aggressively 
+// Makes the circle change colors a little less aggressively
 function shouldUpdateColor() {
-    return (Math.random() > .95);
+    var param = .95; // higher values (must be < 1) make it change less; lower values (must be > 0) make it change more
+    return (Math.random() > param);
 }
