@@ -1,18 +1,21 @@
 <!DOCTYPE html>
-<html><head>
-	<link rel="stylesheet" type="text/css" href="style.css">
-	<script type="text/javascript" src="move.js"></script>
+<html>
+<head>
+	<link rel = "stylesheet" type = "text/css" href = "style.css">
+	<script type = "text/javascript" src = "move.js"></script>
+	<script src = "jquery-3.1.1.js"></script>
 </head>
 <body>
 
-<!--<p>-->
-	<!--<button onclick="move()">Click Me</button>-->
-<!--</p>-->
+<div id = "animate">
 
-<div id ="container">
-	<div id ="animate"></div>
 </div>
 
 </body>
+<script>
+	$(document).mousemove(function(e){
+		$("#animate").css({left:e.pageX, top:e.pageY});
+	});
+</script>
 </html>
 
