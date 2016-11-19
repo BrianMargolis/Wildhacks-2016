@@ -14,8 +14,12 @@
 </body>
 <script>
 	$(document).mousemove(function(e){
+		var c = getRandomColor();
+		console.log(c);
 		$("#animate").css({left:e.pageX, top:e.pageY});
+		if (shouldUpdateColor()) {
+			$("#animate").css('background-color', c);
+		}
 	});
 </script>
 </html>
-
