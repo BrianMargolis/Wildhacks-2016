@@ -50,7 +50,7 @@ function moveShadow() {
     shadowDistance = distance * shadowOffset;
     shadowPosLeft = (distanceX / distance * shadowDistance + lightX - logoShdwCenterX) + "px";
     shadowPosTop = (distanceY / distance * shadowDistance + lightY - logoShdwCenterY) + "px";
-    logoshadow.css({"left": shadowPosLeft, "top": shadowPosTop, "opacity": setOpacity(shadowDistance)});
+    logoshadow.css({"left": shadowPosLeft, "top": shadowPosTop, "opacity": setOpacity(shadowDistance), "margin": "0 0 0 0"});
 }
 
 function setOpacity(getDistance) {

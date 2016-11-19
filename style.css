@@ -9,24 +9,23 @@
     z-index: 1;
 }
 
-#container {
+div.container {
     position: absolute;
     top: 50%;
     left: 50%;
     width: 400px;
     height: 400px;
     background: yellow;
-    /*-200 = 1/2 of 400 b/c otherwise centers on top left corner*/
     margin: -200px 0 0 -200px;
 }
 
-h1 {
+div.container h1 {
     position: absolute;
-    width: 400px;
-    height: 400px;
     top: 50%;
     left: 50%;
-    margin: -200px 0 0 -200px;
+    margin: 0;
+    margin-right: -50%;
+    transform: translate(-50%, -50%);
     font-family: "Lucida Sans Typewriter", "Lucida Console", monaco, "Bitstream Vera Sans Mono", monospace;
     font-size: 34px;
     font-style: normal;
@@ -44,11 +43,12 @@ body {
 
 #logosh {
     position: absolute;
-    top: 40.5%;
-    left: 29.5%;
+    top: 50%;
+    left: 50%;
     width: 400px;
     height: 400px;
     background: #000000;
     /*-200 = 1/2 of 400 b/c otherwise centers on top left corner*/
     z-index: -1;
+    margin: -200px 0 0 -200px;
 }
