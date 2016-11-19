@@ -1,3 +1,23 @@
+$(document).ready(setInterval(pulse(), 250));
+
+function pulse() {
+    var circle = $("#circle");
+    var w = parseInt(circle.width());
+    var h = parseInt(circle.height());
+
+    console.log("w:" + w);
+    var offset = 0;
+    if (w > 45) {
+        offset = -5;
+    } else {
+        offset = 5;
+    }
+
+    w += offset;
+    h += offset;
+    circle.css({width: w, height: h});
+}
+
 $(document).mousemove(function (e) {
     var circle = $("#circle");
     var x = e.pageX - parseInt(circle.width() / 2);
@@ -62,8 +82,6 @@ $("*").click(function (e) {
     concentric.style.cssText = "left: " + x + "px; top: " + y + "px";
 
     $("body").append(concentric);
-    animateConcentric(concentric);
+    // t = setInterval('animateConcentric($(concentric))', 30);
+    $(concentric).animate({width: 150, height: 150, opacity: 0}, 1500);
 });
-
-function animateConcentric(concentric) {
-}
