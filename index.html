@@ -15,6 +15,14 @@
 <script>
 	$(document).mousemove(function(e){
 		$("#circle").css({left:e.pageX, top:e.pageY});
+		if (shouldUpdateColor()) {
+			var c = getRandomColor();
+			$("#circle").css('background', c);
+		}
+	});
+
+	$("#animate").click(function(){
+		// action goes here!!
 	});
 </script>
 </html>
