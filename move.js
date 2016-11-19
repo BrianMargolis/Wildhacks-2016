@@ -1,3 +1,5 @@
+// Returns a random color. Should we make this just select from a predefined list, so we can restrict what colors the circle is?
+
 function getRandomColor() {
     var letters = '0123456789ABCDEF';
     var color = '#';
@@ -7,6 +9,7 @@ function getRandomColor() {
     return color;
 }
 
+// Makes the circle change colors a little less aggressively 
 function shouldUpdateColor() {
     return (Math.random() > .95);
 }
