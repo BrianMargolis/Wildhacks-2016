@@ -50,5 +50,5 @@ body {
     background: #000000;
     /*-200 = 1/2 of 400 b/c otherwise centers on top left corner*/
     z-index: -1;
-    margin: -200px 0 0 -200px;
+    opacity: 0;
 }
