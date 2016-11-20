@@ -2,20 +2,24 @@ $(document).ready(setInterval(pulse(), 250));
 
 function pulse() {
     var circle = $("#circle");
-    var w = parseInt(circle.width());
-    var h = parseInt(circle.height());
+    console.log("who even knows");
+    circle.animate({width: 250, height: 250}, 1000);
+    circle.animate({width: 30, height: 30}, 1000);
+}
 
-    console.log("w:" + w);
-    var offset = 0;
-    if (w > 45) {
-        offset = -5;
-    } else {
-        offset = 5;
-    }
+function pulseUp() {
+    var circle = $("#circle");
+    console.log("pulsing up");
+    circle.animate({width: 250, height: 250}, 1000, function () {
+        console.log("pulsing down");
+        circle.animate({width: 30, height: 30}, {duration: 1000, complete: pulseUp});
+    });
+}
 
-    w += offset;
-    h += offset;
-    circle.css({width: w, height: h});
+function pulseDown() {
+    var circle = $("#circle");
+    console.log("pulsing down");
+    circle.animate({width: 30, height: 30}, {duration: 1000, complete: pulseUp});
 }
 
 $(document).mousemove(function (e) {
@@ -26,7 +30,9 @@ $(document).mousemove(function (e) {
 
     moveShadow();
     if (shouldUpdateColor()) {
-        var c = getRandomColor();
+        var hue = jQuery.Color(circle.color);
+        console.log(hue);
+        var c = getRandomColor(hue);
         circle.css('background', c);
     }
 });
@@ -82,6 +88,5 @@ $("*").click(function (e) {
     concentric.style.cssText = "left: " + x + "px; top: " + y + "px";
 
     $("body").append(concentric);
-    // t = setInterval('animateConcentric($(concentric))', 30);
-    $(concentric).animate({width: 150, height: 150, opacity: 0}, 1500);
+    $(concentric).animate({width: 250, height: 250, opacity: 0, top: "-= 110", left: "-=110"}, 1500);
 });

@@ -1,11 +1,21 @@
 // Returns a random color. Should we make this just select from a predefined list, so we can restrict what colors the circle is?
-function getRandomColor() {
-    var letters = '0123456789ABCDEF';
-    var color = '#';
-    for (var i = 0; i < 6; i++) {
-        color += letters[Math.floor(Math.random() * 16)];
+
+dec_inc = 1; // 1 when we're incrementing, 0 otherwise
+function getRandomColor(currHue) {
+    // hsl(320, 50%, 75%)
+    // Range from hue = 10 to hue = 48
+    if (currHue == 48) {
+        dec_inc = 0;
+    } else if (currHue == 10) {
+        dec_inc = 1;
     }
-    return color;
+
+    if (dec_inc == 1) {
+        hue = currHue + 1;
+    } else {
+        hue = currHue - 1;
+    }
+    return "hsl(" + hue + ", 100%, 54%)";
 }
 
 // Makes the circle change colors a little less aggressively
